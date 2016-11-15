@@ -1,0 +1,126 @@
+---
+layout: post
+title:  "Java String "
+date:   2016-10-08 06:08:02 +0530
+---
+# String
+>String is basically an object that represents sequence of char values. Java platform provides the String to create and manipulate strings.
+
+
+
+
+
+
+
+In the above only one object will be created, firstly JVM will not find any string object with value "welcome" in string constant pool so it will create a new object. After that it will find the string with the value "welcome" in the pool, it will not create new object but will return the reference of same instance.
+
+** String are Immutable in Java **
+
+> String objects are immutable in  java, means it is unmodifiable. Once string object created its data or state can't be changed but a new String object created. Now it can be understood by diagram given below. Here coding is not changed but a new object is created with codingninja, thats why string is known as immutable.
+
+
+
+
+Because String is immutable, it is not efficient to use String if you need to modify your string frequently (that would create many new Strings occupying new storage areas). For example,
+// inefficient codes
+String str = "Hello";
+for (int i = 1; i < 1000; ++i) {
+   str = str + i;
+}
+
+** Why String objects are immutable in java ? **
+> Suppose there are 100 reference variables all refers to one object "coding". If one reference variable changes the value of the object, it will be affected to all the reference variables. That is why string objects are immutable in java
+
+# String Methods:
+
+Here is the list of methods supported by String class:
+
+
+** Strings length: **
+> It returns the number of characters contained in the string.
+~~~java
+public class StringDemo {
+
+   public static void main(String args[]) {
+      String palindrome = "We study in codingninja";
+      int len = palindrome.length();
+      System.out.println( "String Length is : " + len );
+   }
+}
+Result:
+String Length is : 23
+~~~
+** char At: **
+> This method returns the character located at the String's specified index. The string indexes start from zero. Here is the syntax of this method:
+public char charAt(int index)
+
+Example:
+~~~java
+public class Test {
+
+   public static void main(String args[]) {
+      String s = "Strings are immutable";
+      char result = s.charAt(8);
+      System.out.println(result);
+   }
+}
+Result:
+a
+~~~
+# Concatenating Strings:
+The String class includes a method for concatenating two strings:
+string1.concat(string2);
+This returns a new string that is string1 with string2 added to it at the end.              You can also use the concat() method with string, as in:
+~~~java
+"My name is ".concat("Zara");
+~~~
+Strings are more commonly concatenated with the + operator, as in:
+~~~java
+"Hello," + " world" + "!"
+output:  "Hello, world!"
+~~~
+
+Let us look at the following example:
+~~~java
+public class StringDemo {
+
+   public static void main(String args[]) {
+      String string1 = "We are coding ";
+      System.out.println("Hey " + string1 + "Ninjas");
+   }
+}
+Result:
+Hey we are coding Ninjas
+~~~
+** Strings Substring: **
+This method has two variants and returns a new string that is a substring of this string.
+Syntax:
+~~~java
+public String substring(int beginIndex)
+
+or
+
+public String substring(int beginIndex, int endIndex)                                                    //beginIndex --  inclusive & endIndex -- exclusive.
+~~~
+
+Example:
+~~~java
+public class Test{
+   public static void main(String args[]){
+      String Str = new String("Welcome to codingninjas.in");
+
+      System.out.print("Return Value :" );
+      System.out.println(Str.substring(10) );
+
+      System.out.print("Return Value :" );
+      System.out.println(Str.substring(10, 15) );
+   }
+}
+Result:
+Return Value : codingninjas.in
+Return Value : codi
+~~~
+
+** "=="  vs .equals(): **
+> Use the string.equals(String other) function to compare strings, not the == operator.
+> The equal() method checks the actual contents of the string, the == operator checks whether the addresses to the Strings are equal.

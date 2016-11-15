@@ -1,0 +1,105 @@
+---
+layout: post
+title:  "Trie DS "
+date:   2016-10-26 06:08:02 +0530
+---
+# Brute Force
+
+It solves a problem in the most simple, direct way as a result, it end up doing far more work than a more clever algorithm might do.
+
+>It starts with aligning the pattern at the beginning of the text. Then each character of the pattern is compared to the corresponding character, moving from left to right, until all characters are found to match.
+While the pattern is not found and the text is not yet exhausted, the pattern is realigned to one position to the right and again compared to the corresponding character, moving from left to right.
+
+
+
+
+
+
+
+Complexity Analysis: O(n.m).
+                                  [where n: text length, m pattern length ]
+
++Ve
+
+* Doesn’t require pre-processing of the text – Indeed if we search the text only once we don’t need to pre-process it.
+* Doesn’t require additional space – since it doesn’t need pre-processing, doesn’t require extra space.
+* Can be effective for short texts and patterns
+
+
+-Ve
+
+* It can be ineffective…
+* If we search the text more than once –better to use another string matching algorithm that builds an index of the text to search quickly.
+* It’s slow
+
+# Boyer-Moore String Matching
+
+Most efficient string-matching algorithm used in text editors.
+It scans the characters of the pattern from right to left beginning with the rightmost character.
+During the testing of a possible placement of pattern P against text T, a mismatch of text character T[i] = c with the corresponding pattern character P[j] is handled as follows:
+If (c is not contained anywhere in P)                                                                       shift pattern P completely past T[i].
+Otherwise                                                                                                             shift P until c in P gets aligned with T[i].
+It avoid lots of needless comparisons by significantly shifting pattern relative to text.
+
+
+
+
+#### Fundamental string searching problem is defined as follows:####
+> It is also known by problem of searching a needle in Haystack.By needle we mean a pattern that need to be searched in text or haystack.
+
+>You will be provided a long text in which you have to search pattern,
+       given two strings – a text and a pattern,
+       determine whether the pattern appears in the text. 2 ways efficiently solve the above problem.
+ * Pre-process Pattern:
+  KMP Algorithm,
+  Rabin Karp Algorithm,
+  Finite Automata,
+  Boyer Moore Algorithm.
+>
+ * Pre-process Text: Trie
+
+#### Why the tries have this name ?
+Trie is an efficient information retrieval data structure and word trie comes from word “retrieval”
+
+
+
+
+Tries also known by name:
+ Lexicographic Search trees, radix tree, prefix tree, suffix tree
+
+
+
+isTerminal flag
+
+add "do" word in dictionary
+
+
+
+
+#### Why not BST ?
+The tries can insert and search takes O(L) [where L: length of word] time but a BST which stores each word as a node requires O(log(n)) time [where n:  number of nodes in BST]
+
+### Advantages of tries :
+
+Predictable O(L) lookup time where L is the length of word
+Lookup can take less than L time if it's not there
+No need for a hash function [like in HashMap]
+Deletion is straight forward
+Enumerate all entries with a given prefix E.g: Find all words beginning with 'ade' or 'ast' so on.
+If there are many common prefixes, the space they require is shared.
+Trie is compressible.
+Used in burst sort fastest known algorithm to sort large set of strings.
+
+Complexity Analysis of Trie DS.
+  Insertion and searching & deletion all can be done in O(L) time. [L length of word]
+
+### Applications of Trie DS:
+Auto Complete feature [google search]
+Auto Command Completion [Unix or DOS]
+A network browser keeps a history of the URL by organizing history as a trie,
+Spell Checkers  
+Phone Book Search
+
+
+### Compressing tries:
+Each trie can be compressed into a deterministic acyclic finite state automaton. Merging the common branches can sometimes yield large performance gains.

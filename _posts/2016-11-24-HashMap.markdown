@@ -1,0 +1,19 @@
+---
+layout: post
+title:  "Java HashMap "
+date:   2016-10-24 06:08:02 +0530
+---
+** How HashMap Works **
+>HashMap stores the values in key-value pair and works on the concept of hashing.
+
+# Hashing
+> Hashing is a function which generates a unique value using some algorithms and functions. The first and foremost rule of hashing function is it has to generate the same hash always for the same value.
+
+HashMap
+* Works on Hashing.
+* It uses a hash table for storing the values in key-value pair.
+* table is a linked list of key value pair.
+* It has two main methods get and put for storing and retrieving the values.
+Hashing in HashMap
+> To generate the hash value, we have to implement hashCode method for the key.
+Get the index value from hashCode.

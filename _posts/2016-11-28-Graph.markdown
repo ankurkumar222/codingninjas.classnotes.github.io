@@ -1,0 +1,100 @@
+---
+layout: post
+title:  "Graph DS "
+date:   2016-10-28 06:08:02 +0530
+---
+
+Contents:
+
+> * Tree Vs Graph
+* Directed Graphs
+* Undirected Graphs
+* Weighted Graphs
+* Graph Representations:
+* Incidence Matrix
+* Adjacency Matrix Representation
+* Adjacency List Representation
+* Graph Traversals
+  * DFS
+  * BFS
+
+
+
+
+
+
+
+
+Graph is a pair of sets (V, E)
+[where :
+        V is the set of vertices
+        E is the set of edges, connecting the pairs of vertices.
+
+If the pairs of vertices are un-ordered, G is an ** undirected graph **. If the pairs of vertices are ordered, G is a ** directed graph** .
+
+
+
+
+
+
+
+
+## Connected Vs DisConnected Graph
+
+#### Connected Graph:
+From every vertex to any other vertex, there should be some path to traverse. That is called the connectivity of a graph.
+
+#### Disconnected Graph:
+A graph with multiple disconnected vertices and edges is said to be disconnected.
+
+
+
+#### Weighted Graphs
+We may also want to associate some cost or weight to the traversal of an edge. When we add this information, the graph is called weighted.
+Directed and undirected graphs may both be weighted.
+
+
+
+
+
+## What DS used for the representation of graphs:
+
+
+#### Incidence matrix
+>2-D Boolean matrix, in which the rows represent the vertices and columns represent the edges
+The entries indicate whether the vertex at a row is incident to the edge at a column.
+
+
+#### Adjacency list
+>A more space-efficient way to implement a sparsely connected graph is to use an adjacency list.
+It keep a master list of all the vertices in the Graph object and then each vertex object in the graph maintains a list of the other vertices that it is connected to.
+
+
+#### Adjacency matrix
+>A 2-D matrix, in which the rows represent source vertices and columns represent destination vertices.
+
+
+
+
+
+#Graph Traversal
+
+process of visiting each vertex in a graph
+
+
+## DFS:
+
+It visits the child vertices before visiting the sibling vertices.
+It traverses the depth of any particular path before exploring its breadth.
+Implement using stack .
+
+
+## BFS:
+
+
+BFS visits the neighbor vertices before visiting the child vertices.
+Implement using queue.
+Bipartite Graph
+
+
+Graph whose vertices can be divided into two independent sets, U and V such that every edge (u, v) either connects a vertex from U to V or a vertex from V to U.
